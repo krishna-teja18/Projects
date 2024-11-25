@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock Paper Scissors</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <div class="header-box">
+      <div class="title">
+        <h1>ROCK<br>PAPER<br>SCISSORS</h1>
+      </div>
+      <div class="scoreboard">
+        <div class="score">
+          <h2>COMPUTER SCORE</h2>
+          <p id="computer-score">0</p>
+        </div>
+        <div class="score">
+          <h2>YOUR SCORE</h2>
+          <p id="player-score">0</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="game">
+        <div class="result" id="result"></div>
+        <div class="game-options">
+            <div class="option" id="rock" data-choice="rock">
+            <span>✊</span>
+            </div>
+        
+            <div class="option" id="scissors" data-choice="scissors">
+            <span>✌️</span>
+            </div>
+        
+            <div class="option" id="paper" data-choice="paper">
+            <span>✋</span>
+            </div>
+        
+            <div class="lines">
+            <div class="line" id="line-rock-scissors"></div>
+            <div class="line" id="line-rock-paper"></div>
+            <div class="line" id="line-paper-scissors"></div>
+            </div>
+            <button id="play-again" class="hidden">Play Again</button>
+        </div>
+    </div>
+      
+    <button class="rules-btn" id="rules-btn">RULES</button>
+    <button class="next-btn hidden" id="next-btn">NEXT</button>
+
+    <div class="rules-popup" id="rules-popup">
+      <div class="rules-content">
+        <h3>Game Rules</h3>
+        <ul>
+          <li>Rock beats scissors, scissors beat paper, and paper beats rock.</li>
+          <li>Agree ahead of time whether you'll count off “rock, paper, scissors, shoot” or just “rock, paper, scissors.”</li>
+          <li>Use rock, paper, scissors to settle minor decisions or simply to pass the time.</li>
+          <li>If both players lay down the same hand, each player lays down another hand.</li>
+        </ul>
+        <button class="close-btn" id="close-btn">X</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,382 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #98d98e;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.container {
+  width: 60%;
+  max-width: 1200px;
+  position: relative;
+}
+
+.header-box {
+  position: fixed;
+  top: 20px;
+  width: 60%;
+  height: 110px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  border: 2px solid #ffffff;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.title h1 {
+  font-size: 2rem;
+  color: #ffffff;
+  line-height: 1.2;
+}
+
+.scoreboard {
+  display: flex;
+  gap: 40px;
+}
+
+.score {
+  height: 95px;
+  padding: 1px 5px;
+  text-align: center;
+  border: 2px solid #ffffff;
+  width: 30%;
+  background-color: #ffffff;
+  border-radius: 10px;
+}
+
+.score h2 {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  color: #555;
+}
+
+.score p {
+  margin: 0;
+  font-weight: bold;
+  font-size: 45px;
+  position: relative;
+  bottom: 10px;
+}
+
+.game {
+  margin-top: 40px;
+}
+
+.game-options {
+  position: relative;
+  margin-top: 3rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 300px;
+}
+
+.option {
+  position: absolute;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  background-color: #ffffff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  cursor: pointer;
+  transition: transform 0.2s;
+}
+
+.option span {
+  font-size: 40px;
+}
+
+.option:hover {
+  transform: scale(1.1);
+}
+
+.result {
+  margin-top: 30px;
+  font-size: 24px;
+  font-weight: bold;
+}
+
+#play-again {
+  margin-top: 20px;
+  padding: 10px 20px;
+  font-size: 16px;
+  border: none;
+  background-color: #333;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 5px;
+}
+
+.hidden {
+  display: none;
+}
+
+#rock {
+  top: 0;
+  bottom: 50px;
+  left: 220px;
+  border: 5px solid #007bff;
+}
+
+#paper {
+  top: 200px;
+  bottom: 0;
+  left: 335px;
+  border: 5px solid #ffca28;
+}
+
+#scissors {
+  top: 0;
+  bottom: 50px;
+  right: 270px;
+  border: 5px solid #ff4081;
+}
+
+.lines .line {
+  position: absolute;
+  background-color: #333;
+  height: 4px;
+}
+
+.lines .line:nth-child(1) {
+  top: 50px;
+  left: 329px;
+  width: 115px;
+}
+
+.lines .line:nth-child(2) {
+  bottom: 137px;
+  left: 260px;
+  transform: rotate(60deg);
+  width: 124px;
+}
+
+.lines .line:nth-child(3) {
+  bottom: 136px;
+  right: 304px;
+  transform: rotate(-60deg);
+  width: 122px;
+}
+
+.winner {
+  text-align: center;
+}
+
+.winner div {
+  display: inline-block;
+  margin: 0 20px;
+  text-align: center;
+  position: relative;
+  top: 50px;
+}
+
+.winner h3 {
+  margin: 10px 0;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+}
+
+.winner .player {
+  margin-right: 100px;
+}
+
+.winner .computer {
+  margin-left: 100px;
+}
+
+.options {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff;
+  font-size: 48px;
+  position: relative;
+  z-index: 2;
+}
+
+.winner .player .options.winner,
+.winner .computer .options.winner {
+  position: relative;
+}
+
+.winner .player .options.winner::before,
+.winner .player .options.winner::after,
+.winner .computer .options.winner::before,
+.winner .computer .options.winner::after {
+  content: "";
+  position: absolute;
+  width: 140px;
+  height: 140px;
+  border-radius: 50%;
+  background-color: rgba(128, 51, 255, 0.2);
+  z-index: 1;
+  top: -20px;
+  left: -20px;
+}
+
+.winner .player .options.winner::after,
+.winner .computer .options.winner::after {
+  width: 180px;
+  height: 180px;
+  top: -40px;
+  left: -40px;
+  background-color: rgba(
+    128,
+    51,
+    255,
+    0.1
+  );
+}
+
+.winner div:nth-child(2) .options.winner::before,
+.winner div:nth-child(2) .options.winner::after {
+  background-color: rgba(33, 83, 2, 0.2);
+}
+
+.winner h2 {
+  font-size: 24px;
+  color: #fff;
+  font-weight: bold;
+  width: 25%;
+  margin-left: 300px;
+}
+
+button {
+  margin-top: 20px;
+  padding: 10px 20px;
+  background-color: #fff;
+  border: none;
+  border-radius: 5px;
+  font-size: 16px;
+  font-weight: bold;
+  color: #333;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+button:hover {
+  background-color: #ddd;
+}
+
+.rules-btn {
+  position: absolute;
+  /* bottom: 10px; */
+  left: 950px;
+  background-color: #ffffff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+}
+
+.rules-popup {
+  position: fixed;
+  top: 380px;
+  left: 1150px;
+  transform: translate(-50%, -50%);
+  width: 300px;
+  background-color: #004d1a;
+  color: #ffffff;
+  border-radius: 10px;
+  padding: 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+  display: none;
+}
+
+.rules-content h3 {
+  margin-top: 0;
+}
+
+.rules-content ul {
+  list-style-type: square;
+  padding-left: 1.5rem;
+}
+
+.close-btn {
+  position: absolute;
+  top: 1rem;
+  right: 1rem;
+  background: none;
+  border: none;
+  color: #ffffff;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+/* Winner Screen Styles */
+.winner-screen {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: #9fd573;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.winner-content {
+  text-align: center;
+  color: #ffffff;
+  font-family: Arial, sans-serif;
+}
+
+.trophy {
+  font-size: 5rem;
+  margin-bottom: 1rem;
+}
+
+.winner-content h1 {
+  font-size: 3rem;
+  font-weight: bold;
+}
+
+.winner-content p {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+}
+
+.winner-content button {
+  margin: 0.5rem;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
+  background-color: #ffffff;
+  color: #9fd573;
+  cursor: pointer;
+}
+
+#next-btn {
+    position: absolute;
+  /* bottom: 10px; */
+  left: 850px;
+  background-color: #ffffff;
+  padding: 0.5rem 1rem;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  font-size: 20px;
+  font-weight: bold;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    
+}
